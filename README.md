@@ -73,6 +73,9 @@ val innocentField	= VeryEnterpriseJava14LibrarySingleton.getInstance.getPotentia
 innocentField?				// => None: Option[N]
 innocentField.optional		// => None: Option[N]
 
+// Strict non-null assertion via Unary `!`
+innocentField!				// => NullPointerException("innocentField is null")
+
 // Implicit conversion of Product to boolean (implicit bridging of isEmpty)
 None : Boolean				// => false
 
