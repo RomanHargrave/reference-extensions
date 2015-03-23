@@ -6,6 +6,14 @@ package info.hargrave.refext
 trait DecoratedReferences {
     import DecoratedReferences.Reference
 
+    /**
+     * Construct a [[DecoratedReferences.Reference reference wrapper]] for a given [[AnyRef reference]]
+     *
+     * @see [[DecoratedReferences.Reference]]
+     * @param reference reference to wrap
+     * @tparam T        reference type
+     * @return          reference wrapper
+     */
     implicit def DecoratedReference[T <: AnyRef](reference: T): Reference[T] = new Reference(reference)
 }
 object DecoratedReferences extends AnyRef with DecoratedReferences {
