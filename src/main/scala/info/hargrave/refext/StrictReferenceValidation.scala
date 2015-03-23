@@ -7,6 +7,14 @@ trait StrictReferenceValidation {
 
     import StrictReferenceValidation.Reference
 
+    /**
+     * Constructs a [[StrictReferenceValidation.Reference reference wrapper]] for a given [[AnyRef reference]]
+     *
+     * @param ref       reference to construct a wrapper for
+     * @param manifest  reference type manifest, used to generate exception
+     * @tparam T        reference type
+     * @return          Reference [[StrictReferenceValidation.Reference wrapper]]
+     */
     implicit def ReferenceValidator[T <: AnyRef](ref: T)(implicit manifest: Manifest[T]): Reference[T] = new Reference(ref)(manifest)
 
 }
@@ -50,7 +58,7 @@ object StrictReferenceValidation extends AnyRef with StrictReferenceValidation {
          * Bridge to [[ensured]]
          *
          * @note this is a bridge method
-         * @see ensured
+         * @see [[ensured]]
          */
         def `!`: Kind = ensured
 
